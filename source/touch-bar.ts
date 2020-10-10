@@ -5,11 +5,11 @@ import {sendAction, getWindow} from './util';
 import {caprineIconPath} from './constants';
 
 const {TouchBarButton} = TouchBar;
-const MAX_VISIBLE_LENGTH = 25;
+const MAX_VISIBLE_LENGTH = 40;
 const privateModeTouchBarLabel: Electron.TouchBarButton = new TouchBarButton({
 	label: 'Private mode enabled',
 	icon: nativeImage.createFromPath(caprineIconPath),
-	iconPosition: 'left'
+	iconPosition: 'right'
 });
 
 function setTouchBar(items: Electron.TouchBarButton[]): void {
@@ -32,7 +32,7 @@ function createTouchBarButton({label, selected, icon}: Conversation, index: numb
 		label: createLabel(label),
 		backgroundColor: selected ? '#0084ff' : undefined,
 		icon: nativeImage.createFromDataURL(icon),
-		iconPosition: 'left',
+		iconPosition: 'right',
 		click: () => {
 			sendAction('jump-to-conversation', index + 1);
 		}
